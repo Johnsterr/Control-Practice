@@ -17,14 +17,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FL5-Wk-Xcj">
-                                <rect key="frame" x="131" y="133" width="112" height="74"/>
+                                <rect key="frame" x="117" y="144" width="142" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="255">
+                                <buttonConfiguration key="configuration" style="plain" title="255" cornerStyle="small">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="50"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="buttonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="4KX-ck-eYC"/>
+                                    <action selector="buttonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="jGU-By-qGz"/>
                                 </connections>
                             </button>
                             <switch opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jiw-dG-4pb">
@@ -87,17 +88,16 @@
                                 <rect key="frame" x="14" y="447" width="347" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="sliderMoved" destination="BYZ-38-t0r" eventType="valueChanged" id="ugh-cF-SZG"/>
+                                    <action selector="sliderMoved" destination="BYZ-38-t0r" eventType="valueChanged" id="jWC-oS-faG"/>
                                 </connections>
                             </slider>
-                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="255" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q1A-iY-fNx">
-                                <rect key="frame" x="115" y="544" width="144" height="70"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="zX2-90-LU4"/>
-                                </constraints>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="255" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q1A-iY-fNx">
+                                <rect key="frame" x="109" y="527" width="157" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
+                                    <action selector="textFieldEdited" destination="BYZ-38-t0r" eventType="editingDidEnd" id="B0n-na-R5W"/>
                                     <action selector="textFieldEdited" destination="BYZ-38-t0r" eventType="editingChanged" id="rEF-TO-DPB"/>
                                 </connections>
                             </textField>
@@ -106,9 +106,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="button" destination="FL5-Wk-Xcj" id="ap2-Mw-ZRO"/>
-                        <outlet property="slider" destination="7V2-Ne-Zb4" id="T9G-rq-T8z"/>
-                        <outlet property="textField" destination="Q1A-iY-fNx" id="5l6-ws-iiy"/>
+                        <outlet property="button" destination="FL5-Wk-Xcj" id="2vL-fG-KYZ"/>
+                        <outlet property="slider" destination="7V2-Ne-Zb4" id="IJE-yI-WLg"/>
+                        <outlet property="textField" destination="Q1A-iY-fNx" id="8EH-jV-tzr"/>
                         <outletCollection property="switches" destination="Jiw-dG-4pb" collectionClass="NSMutableArray" id="tz7-Th-GkH"/>
                         <outletCollection property="switches" destination="cAN-ap-y6C" collectionClass="NSMutableArray" id="4Fs-hC-RVZ"/>
                         <outletCollection property="switches" destination="j5D-HX-jHt" collectionClass="NSMutableArray" id="Wnz-ms-8Ag"/>
@@ -127,6 +127,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
