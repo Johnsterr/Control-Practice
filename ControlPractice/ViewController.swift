@@ -14,7 +14,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var textField: UITextField!
     
-    var number: UInt8 = 128
+    var number = 128 {
+        didSet {
+//            if number < 0 {
+//                number = 255
+//            } else if 255 < number {
+//                number = 0
+//            }
+            
+            number = (number + 256) % 256
+            updateUI()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +45,7 @@ class ViewController: UIViewController {
         for  `switch` in switches {
             number += `switch`.isOn ? `switch`.tag : 0
         }
-        self.number = UInt8(number % 256)
+        self.number = number
     }
     
     /// Update switches from the number
@@ -53,24 +64,28 @@ class ViewController: UIViewController {
     }
 
     @IBAction func buttonPressed() {
-        number = UInt8((Int(number) + 1) % 256)
-        updateUI()
+        number += 1
     }
     
     @IBAction func switchToggled(_ sender: UISwitch) {
         updateNumberFromSwitches()
-        updateUI()
     }
     
     @IBAction func sliderMoved() {
-        number = UInt8(slider.value)
-        updateUI()
+        number = Int(slider.value)
     }
     
     @IBAction func textFieldEdited() {
-        number = UInt8(textField.text ?? "") ?? 128
-        updateUI()
+        number = Int(textField.text ?? "") ?? 128
     }
     
+    @IBAction func screenTapped(_ sender: UITapGestureRecognizer) {
+        let location = sender.location(in: view)
+        if location.x < view.bounds.midX {
+            number -= 1
+        } else {
+            number += 1
+        }
+    }
 }
 
